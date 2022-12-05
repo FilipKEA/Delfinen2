@@ -18,15 +18,13 @@ public class Main {
         ArrayList<SwimResult> o18CompList = new ArrayList<>();
         ArrayList<SwimResult> o18TrainList = new ArrayList<>();
         boolean sentinel = true;
+        int userChoice = -1;
         String stringInput;
         int intInput;
         int intInput2;
         int intInput3;
         int intInput4;
         double doubleInput;
-        boolean boolInput;
-        boolean boolInput2;
-        boolean boolInput3;
         Scanner input = new Scanner(System.in);
 
         // TEST
@@ -87,7 +85,6 @@ public class Main {
                     System.out.println("1. Opret motionist medlem");
                     System.out.println("2. Opret konkurrence medlem");
                     boolean incorrectInput = true;
-                    int userChoice;
                     while (incorrectInput) {
                         if (input.hasNextInt()) {
                             userChoice = input.nextInt();
@@ -102,17 +99,54 @@ public class Main {
                             input.nextLine();
                         }
                     }
-                    int choice2 = input.nextInt();
+                    int choice2 = userChoice;
                     if (choice2 == 1) {
                         System.out.println("Medlemsnavn:");
                         stringInput = input.next();
+
                         System.out.println("Medlems alder:");
-                        intInput = input.nextInt();
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere 1 eller over");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int memAge = userChoice;
+
                         System.out.println("Medlemstype (Aktiv/Passiv)");
-                        System.out.println("true = Aktiv");
-                        System.out.println("false = Passiv");
-                        boolInput = input.nextBoolean();
-                        Member memb = new Member(stringInput, intInput, boolInput);
+                        System.out.println("1 = Aktiv");
+                        System.out.println("2 = Passiv");
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > 2) {
+                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        boolean actOrPas;
+                        if (userChoice == 1) {
+                            actOrPas = true;
+                        } else {
+                            actOrPas = false;
+                        }
+                        Member memb = new Member(stringInput, memAge, actOrPas);
                         memList.add(memb);
                         if (memb.getAge() < 18 && memb.isCompetitive()) {
                             u18.add(memb);
@@ -124,30 +158,122 @@ public class Main {
                     } else {
                         System.out.println("Medlemsnavn:");
                         stringInput = input.next();
+
                         System.out.println("Medlems alder:");
-                        intInput = input.nextInt();
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere 1 eller over");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int memAge = userChoice;
+
                         System.out.println("Medlemstype (Aktiv/Passiv)");
-                        System.out.println("true = Aktiv");
-                        System.out.println("false = Passiv");
-                        boolInput = input.nextBoolean();
+                        System.out.println("1 = Aktiv");
+                        System.out.println("2 = Passiv");
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > 2) {
+                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        boolean actOrPas;
+                        if (userChoice == 1) {
+                            actOrPas = true;
+                        } else {
+                            actOrPas = false;
+                        }
                         System.out.println("Vil medlemmet deltage i crawl?");
-                        System.out.println("true = Ja");
-                        System.out.println("false = Nej");
-                        boolInput2 = input.nextBoolean();
+                        System.out.println("1 = Ja");
+                        System.out.println("2 = Nej");
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > 2) {
+                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        boolean actOrPas2;
+                        if (userChoice == 1) {
+                            actOrPas2 = true;
+                        } else {
+                            actOrPas2 = false;
+                        }
                         System.out.println("Vil medlemmet deltage i backstroke?");
-                        System.out.println("true = Ja");
-                        System.out.println("false = Nej");
-                        boolInput3 = input.nextBoolean();
-                        Member memb = new Member(stringInput, intInput, boolInput, boolInput2, boolInput3);
+                        System.out.println("1 = Ja");
+                        System.out.println("2 = Nej");
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > 2) {
+                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        boolean actOrPas3;
+                        if (userChoice == 1) {
+                            actOrPas3 = true;
+                        } else {
+                            actOrPas3 = false;
+                        }
+                        Member memb = new Member(stringInput, memAge, actOrPas, actOrPas2, actOrPas3);
                         memList.add(memb);
                     }
                     break;
                 case 2:
                     System.out.println("Vaelg et medlem:");
                     for (int i = 0; i < memList.size(); i++) {
-                        System.out.println(i+1+". "+memList.get(i).toString());
+                        System.out.println(i+1+". "+memList.get(i).getName());
                     }
-                    intInput = input.nextInt()-1;
+                    incorrectInput = true;
+                    while (incorrectInput) {
+                        if (input.hasNextInt()) {
+                            userChoice = input.nextInt();
+                            if (userChoice < 1 || userChoice > memList.size()) {
+                                System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                input.nextLine();
+                            } else {
+                                incorrectInput = false;
+                            }
+                        } else {
+                            System.out.println("Proev igen, input var ikke et heltal");
+                            input.nextLine();
+                        }
+                    }
+                    int memChoice = userChoice-1;
                     System.out.println("Vaelg den data du vil redigere:");
                     System.out.println("1. Navn");
                     System.out.println("2. Alder");
@@ -155,70 +281,236 @@ public class Main {
                     System.out.println("4. Motionist eller konkurrencesvoemmer");
                     System.out.println("5. Kontingent");
                     System.out.println("6. Svoemmedisciplin");
-
-                    choice2 = input.nextInt();
+                    incorrectInput = true;
+                    while (incorrectInput) {
+                        if (input.hasNextInt()) {
+                            userChoice = input.nextInt();
+                            if (userChoice < 1 || userChoice > 6) {
+                                System.out.println("Proev igen. Dit heltal skal mellem 1-6");
+                                input.nextLine();
+                            } else {
+                                incorrectInput = false;
+                            }
+                        } else {
+                            System.out.println("Proev igen, input var ikke et heltal");
+                            input.nextLine();
+                        }
+                    }
+                    choice2 = userChoice;
                     switch (choice2) {
                         case 1:
                             System.out.println("Indtast det nye navn:");
                             stringInput = input.next();
-                            memList.get(intInput).setName(stringInput);
+                            memList.get(memChoice).setName(stringInput);
                             break;
                         case 2:
                             System.out.println("Indtast en ny alder:");
-                            intInput2 = input.nextInt();
-                            memList.get(intInput).setAge(intInput2);
+                            incorrectInput = true;
+                            while (incorrectInput) {
+                                if (input.hasNextInt()) {
+                                    userChoice = input.nextInt();
+                                    if (userChoice < 1) {
+                                        System.out.println("Proev igen. Dit heltal skal vaere 1 eller over");
+                                        input.nextLine();
+                                    } else {
+                                        incorrectInput = false;
+                                    }
+                                } else {
+                                    System.out.println("Proev igen, input var ikke et heltal");
+                                    input.nextLine();
+                                }
+                            }
+                            int memAge = userChoice;
+                            memList.get(memChoice).setAge(memAge);
                             break;
                         case 3:
                             System.out.println("Indtast medlemmets status");
-                            System.out.println("true = aktivt medlem");
-                            System.out.println("false = passivt medlem");
-                            boolInput = input.nextBoolean();
-                            memList.get(intInput).setActive(boolInput);
+                            System.out.println("1 = aktivt medlem");
+                            System.out.println("2 = passivt medlem");
+                            incorrectInput = true;
+                            while (incorrectInput) {
+                                if (input.hasNextInt()) {
+                                    userChoice = input.nextInt();
+                                    if (userChoice < 1 || userChoice > 2) {
+                                        System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                        input.nextLine();
+                                    } else {
+                                        incorrectInput = false;
+                                    }
+                                } else {
+                                    System.out.println("Proev igen, input var ikke et heltal");
+                                    input.nextLine();
+                                }
+                            }
+                            boolean actOrPas;
+                            if (userChoice == 1) {
+                                actOrPas = true;
+                            } else {
+                                actOrPas = false;
+                            }
+                            memList.get(memChoice).setActive(actOrPas);
                             break;
                         case 4:
                             System.out.println("Er medlemmet motionist eller konkurrencesvoemmer?");
-                            System.out.println("true = Konkurrencesvoemmer.");
-                            System.out.println("false = Motionist.");
-                            boolInput = input.nextBoolean();
-                            memList.get(intInput).setCompetitive(boolInput);
+                            System.out.println("1 = konkurrencesvoemmer");
+                            System.out.println("2 = motionist");
+                            incorrectInput = true;
+                            while (incorrectInput) {
+                                if (input.hasNextInt()) {
+                                    userChoice = input.nextInt();
+                                    if (userChoice < 1 || userChoice > 2) {
+                                        System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                        input.nextLine();
+                                    } else {
+                                        incorrectInput = false;
+                                    }
+                                } else {
+                                    System.out.println("Proev igen, input var ikke et heltal");
+                                    input.nextLine();
+                                }
+                            }
+                            if (userChoice == 1) {
+                                actOrPas = true;
+                            } else {
+                                actOrPas = false;
+                            }
+                            memList.get(memChoice).setCompetitive(actOrPas);
                             break;
                         case 5:
                             System.out.println("Hvilken data vil du aendre paa:");
                             System.out.println("1. Betalingsbeloeb.");
                             System.out.println("2. Betalingsstatus.");
-                            intInput2 = input.nextInt();
-                            if (intInput2 == 1) {
+                            incorrectInput = true;
+                            while (incorrectInput) {
+                                if (input.hasNextInt()) {
+                                    userChoice = input.nextInt();
+                                    if (userChoice < 1 || userChoice > 2) {
+                                        System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                        input.nextLine();
+                                    } else {
+                                        incorrectInput = false;
+                                    }
+                                } else {
+                                    System.out.println("Proev igen, input var ikke et heltal");
+                                    input.nextLine();
+                                }
+                            }
+                            int choice3 = userChoice;
+                            if (choice3 == 1) {
                                 System.out.println("Indtast det nye kontigent beloeb:");
-                                intInput3 = input.nextInt();
-                                memList.get(intInput).setSubFee(intInput3);
-                            } else if (intInput2 == 2) {
-                                System.out.println("Indtast betalingsstatus:");
-                                System.out.println("true = Betalt.");
-                                System.out.println("false = Ikke betalt.");
-                                boolInput = input.nextBoolean();
-                                memList.get(intInput).setSubPaid(boolInput);
+                                incorrectInput = true;
+                                while (incorrectInput) {
+                                    if (input.hasNextInt()) {
+                                        userChoice = input.nextInt();
+                                        if (userChoice < 1) {
+                                            System.out.println("Proev igen. Tallet skal vaere et positivt heltal");
+                                            input.nextLine();
+                                        } else {
+                                            incorrectInput = false;
+                                        }
+                                    } else {
+                                        System.out.println("Proev igen, input var ikke et heltal");
+                                        input.nextLine();
+                                    }
+                                }
+                                int newSubFee = userChoice;
+                                memList.get(memChoice).setSubFee(newSubFee);
                             } else {
-                                System.out.println("Forkert input.");
+                                System.out.println("Indtast betalingsstatus:");
+                                System.out.println("1. Betalt.");
+                                System.out.println("2. Ikke betalt.");
+                                incorrectInput = true;
+                                while (incorrectInput) {
+                                    if (input.hasNextInt()) {
+                                        userChoice = input.nextInt();
+                                        if (userChoice < 1 || userChoice > 2) {
+                                            System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
+                                            input.nextLine();
+                                        } else {
+                                            incorrectInput = false;
+                                        }
+                                    } else {
+                                        System.out.println("Proev igen, input var ikke et heltal");
+                                        input.nextLine();
+                                    }
+                                }
+                                if (userChoice == 1) {
+                                    actOrPas = true;
+                                } else {
+                                    actOrPas = false;
+                                }
+                                memList.get(memChoice).setSubPaid(actOrPas);
                             }
                             break;
                         case 6:
                             System.out.println("1. Crawl.");
                             System.out.println("2. Backstroke.");
-                            intInput2 = input.nextInt();
-                            if (intInput2 == 1) {
+                            incorrectInput = true;
+                            while (incorrectInput) {
+                                if (input.hasNextInt()) {
+                                    userChoice = input.nextInt();
+                                    if (userChoice < 1 || userChoice > 2) {
+                                        System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
+                                        input.nextLine();
+                                    } else {
+                                        incorrectInput = false;
+                                    }
+                                } else {
+                                    System.out.println("Proev igen, input var ikke et heltal");
+                                    input.nextLine();
+                                }
+                            }
+                            choice3 = userChoice;
+                            if (choice3 == 1) {
                                 System.out.println("Vaelg aktivitetsstatus:");
-                                System.out.println("true = aktiv");
-                                System.out.println("false = ikke aktiv");
-                                boolInput = input.nextBoolean();
-                                memList.get(intInput).setCrawl(boolInput);
-                            } else if (intInput2 == 2) {
-                                System.out.println("Vaelg aktivitetsstatus:");
-                                System.out.println("true = aktiv");
-                                System.out.println("false = ikke aktiv");
-                                boolInput = input.nextBoolean();
-                                memList.get(intInput).setBackstroke(boolInput);
+                                System.out.println("1. aktiv");
+                                System.out.println("2. ikke aktiv");
+                                incorrectInput = true;
+                                while (incorrectInput) {
+                                    if (input.hasNextInt()) {
+                                        userChoice = input.nextInt();
+                                        if (userChoice < 1 || userChoice > 2) {
+                                            System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
+                                            input.nextLine();
+                                        } else {
+                                            incorrectInput = false;
+                                        }
+                                    } else {
+                                        System.out.println("Proev igen, input var ikke et heltal");
+                                        input.nextLine();
+                                    }
+                                }
+                                if (userChoice == 1) {
+                                    actOrPas = true;
+                                } else {
+                                    actOrPas = false;
+                                }
+                                memList.get(memChoice).setCrawl(actOrPas);
                             } else {
-                                System.out.println("Forkert input.");
+                                System.out.println("Vaelg aktivitetsstatus:");
+                                System.out.println("1. aktiv");
+                                System.out.println("2. ikke aktiv");
+                                incorrectInput = true;
+                                while (incorrectInput) {
+                                    if (input.hasNextInt()) {
+                                        userChoice = input.nextInt();
+                                        if (userChoice < 1 || userChoice > 2) {
+                                            System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
+                                            input.nextLine();
+                                        } else {
+                                            incorrectInput = false;
+                                        }
+                                    } else {
+                                        System.out.println("Proev igen, input var ikke et heltal");
+                                        input.nextLine();
+                                    }
+                                }
+                                if (userChoice == 1) {
+                                    actOrPas = true;
+                                } else {
+                                    actOrPas = false;
+                                }
+                                memList.get(memChoice).setBackstroke(actOrPas);
                             }
                             break;
                     }
@@ -226,10 +518,9 @@ public class Main {
 
 
                 case 3:
-                    for (int i = 0; i > memList.size(); i++) {
-                        if (memList.get(i).isSubPaid() == false) {
-                            System.out.println("Navn: "+memList.get(i).getName());
-                            System.out.println("Beloeb i restance: "+memList.get(i).getSubFee());
+                    for (int i = 0; i < memList.size(); i++) {
+                        if (!memList.get(i).isSubPaid()) {
+                            System.out.println("Navn: "+ memList.get(i).getName() + ". Beloeb i restance: "+ memList.get(i).getSubFee());
                             System.out.println(" ");
                         }
                     }
@@ -238,119 +529,419 @@ public class Main {
                     System.out.println("Er det en u18 eller senior svoemmmer?");
                     System.out.println("1. u18");
                     System.out.println("2. Senior");
-                    intInput = input.nextInt();
-                    if (intInput == 1) {
+                    incorrectInput = true;
+                    while (incorrectInput) {
+                        if (input.hasNextInt()) {
+                            userChoice = input.nextInt();
+                            if (userChoice < 1 || userChoice > 2) {
+                                System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
+                                input.nextLine();
+                            } else {
+                                incorrectInput = false;
+                            }
+                        } else {
+                            System.out.println("Proev igen, input var ikke et heltal");
+                            input.nextLine();
+                        }
+                    }
+                    choice2 = userChoice;
+                    if (choice2 == 1) {
                         System.out.println("Vaelg et medlem:");
-                        for (int i = 0; i > u18.size(); i++) {
+                        for (int i = 0; i < u18.size(); i++) {
                             System.out.println(i+1+". "+u18.get(i).getName());
                         }
-                        intInput2 = input.nextInt()-1;
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > u18.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + u18.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        memChoice = userChoice-1;
 
                         System.out.println("Vaelg en disciplin:");
-                        for (int i = 0; i > swimDisciplines.size(); i++) {
-                            System.out.println(i+1+" "+swimDisciplines.get(i).getDistance()+" "+swimDisciplines.get(i).getDisName());
+                        for (int i = 0; i < swimDisciplines.size(); i++) {
+                            System.out.println(i+1+". " +swimDisciplines.get(i).getDistance() + "m " + swimDisciplines.get(i).getDisName());
                         }
-                        intInput3 = input.nextInt()-1;
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > swimDisciplines.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + swimDisciplines.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int disChoice = userChoice - 1;
+
                         System.out.println("Indtast tid: (Double format)");
-                        doubleInput = input.nextDouble();
+                        incorrectInput = true;
+                        double userChoiceDouble = -1.0;
+                        while (incorrectInput) {
+                            if (input.hasNextDouble()) {
+                                userChoiceDouble = input.nextDouble();
+                                if (userChoiceDouble < 0.0) {
+                                    System.out.println("Svoemmetiden kan ikke vaere negativ.");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        Double swimTime = userChoiceDouble;
+
                         System.out.println("Dato: (DDMMYY int format)");
-                        intInput4 = input.nextInt();
-                        SwimResult trainResult = new SwimResult(doubleInput, intInput4, u18.get(intInput2), swimDisciplines.get(intInput3));
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                incorrectInput = false;
+                                input.nextLine();
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int date = userChoice;
+                        SwimResult trainResult = new SwimResult(swimTime, date, u18.get(memChoice), swimDisciplines.get(disChoice));
                         u18TrainList.add(trainResult);
                         break;
-                    } else if (intInput == 2) {
+                    } else {
                         System.out.println("Vaelg et medlem:");
-                        for (int i = 0; i > o18.size(); i++) {
+                        for (int i = 0; i < o18.size(); i++) {
                             System.out.println(i+1+". "+o18.get(i).getName());
                         }
-                        intInput2 = input.nextInt()-1;
-                        System.out.println("Vaelg en disciplin:");
-                        for (int i = 0; i > swimDisciplines.size(); i++) {
-                            System.out.println(i+1+". "+swimDisciplines.get(i).getDistance()+" "+swimDisciplines.get(i).getDisName());
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > o18.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + o18.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
                         }
-                        intInput3 = input.nextInt()-1;
+                        memChoice = userChoice-1;
+                        System.out.println("Vaelg en disciplin:");
+                        for (int i = 0; i < swimDisciplines.size(); i++) {
+                            System.out.println(i + 1 + ". " + swimDisciplines.get(i).getDistance() + "m " + swimDisciplines.get(i).getDisName());
+                        }
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > swimDisciplines.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + swimDisciplines.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int disChoice = userChoice - 1;
+
                         System.out.println("Indtast tid: (Double format)");
-                        doubleInput = input.nextDouble();
+                        incorrectInput = true;
+                        double userChoiceDouble = -1.0;
+                        while (incorrectInput) {
+                            if (input.hasNextDouble()) {
+                                userChoiceDouble = input.nextDouble();
+                                if (userChoiceDouble < 0.0) {
+                                    System.out.println("Svoemmetiden kan ikke vaere negativ.");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        Double swimTime = userChoiceDouble;
+
                         System.out.println("Dato: (DDMMYY int format)");
-                        intInput4 = input.nextInt();
-                        SwimResult trainResult = new SwimResult(doubleInput, intInput4, u18.get(intInput2), swimDisciplines.get(intInput3));
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                incorrectInput = false;
+                                input.nextLine();
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int date = userChoice;
+                        SwimResult trainResult = new SwimResult(swimTime, date, o18.get(memChoice), swimDisciplines.get(disChoice));
                         o18TrainList.add(trainResult);
-                        break;
-                    } else {
                         break;
                     }
                 case 5:
                     System.out.println("Er det en u18 eller senior svoemmmer?");
                     System.out.println("1. u18");
                     System.out.println("2. Senior");
-                    intInput = input.nextInt();
-                    if (intInput == 1) {
+                    incorrectInput = true;
+                    while (incorrectInput) {
+                        if (input.hasNextInt()) {
+                            userChoice = input.nextInt();
+                            if (userChoice < 1 || userChoice > 2) {
+                                System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
+                                input.nextLine();
+                            } else {
+                                incorrectInput = false;
+                            }
+                        } else {
+                            System.out.println("Proev igen, input var ikke et heltal");
+                            input.nextLine();
+                        }
+                    }
+                    choice2 = userChoice;
+                    if (choice2 == 1) {
                         System.out.println("Vaelg et medlem:");
-                        for (int i = 0; i > u18.size(); i++) {
+                        for (int i = 0; i < u18.size(); i++) {
                             System.out.println(i+1+". "+u18.get(i).getName());
                         }
-                        intInput2 = input.nextInt()-1;
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > u18.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + u18.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        memChoice = userChoice-1;
 
                         System.out.println("Vaelg en disciplin:");
-                        for (int i = 0; i > swimDisciplines.size(); i++) {
-                            System.out.println(i+1+" "+swimDisciplines.get(i).getDistance()+" "+swimDisciplines.get(i).getDisName());
+                        for (int i = 0; i < swimDisciplines.size(); i++) {
+                            System.out.println(i + 1 + ". " + swimDisciplines.get(i).getDistance() + "m " + swimDisciplines.get(i).getDisName());
                         }
-                        intInput3 = input.nextInt()-1;
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > swimDisciplines.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + swimDisciplines.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int disChoice = userChoice - 1;
 
                         System.out.println("Indtast tid: (Double format)");
-                        doubleInput = input.nextDouble();
+                        incorrectInput = true;
+                        double userChoiceDouble = -1.0;
+                        while (incorrectInput) {
+                            if (input.hasNextDouble()) {
+                                userChoiceDouble = input.nextDouble();
+                                if (userChoiceDouble < 0.0) {
+                                    System.out.println("Svoemmetiden kan ikke vaere negativ.");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        Double swimTime = userChoiceDouble;
 
                         System.out.println("Konkurrencenavn:");
                         stringInput = input.next();
 
                         System.out.println("Hvilken placering fik svoemmeren?");
-                        intInput4 = input.nextInt();
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1) {
+                                    System.out.println("Proev igen. Tallet skal vaere et positivt heltal");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int placement = userChoice;
 
-                        SwimResult compResult = new SwimResult(doubleInput, stringInput, intInput4, u18.get(intInput2), swimDisciplines.get(intInput3));
+                        SwimResult compResult = new SwimResult(swimTime, stringInput, placement, u18.get(memChoice), swimDisciplines.get(disChoice));
                         u18CompList.add(compResult);
                         break;
-                    } else if (intInput == 2) {
+                    } else {
                         System.out.println("Vaelg et medlem:");
-                        for (int i = 0; i > o18.size(); i++) {
-                            System.out.println(i+1+". "+o18.get(i).getName());
+                        for (int i = 0; i < o18.size(); i++) {
+                            System.out.println(i + 1 + ". " + o18.get(i).getName());
                         }
-                        intInput2 = input.nextInt()-1;
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > o18.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + o18.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        memChoice = userChoice-1;
+
                         System.out.println("Vaelg en disciplin:");
-                        for (int i = 0; i > swimDisciplines.size(); i++) {
-                            System.out.println(i+1+". "+swimDisciplines.get(i).getDistance()+" "+swimDisciplines.get(i).getDisName());
+                        for (int i = 0; i < swimDisciplines.size(); i++) {
+                            System.out.println(i + 1 + ". " + swimDisciplines.get(i).getDistance() + " " + swimDisciplines.get(i).getDisName());
                         }
-                        intInput3 = input.nextInt()-1;
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > swimDisciplines.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + swimDisciplines.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int disChoice = userChoice - 1;
+
                         System.out.println("Indtast tid: (Double format)");
-                        doubleInput = input.nextDouble();
+                        incorrectInput = true;
+                        double userChoiceDouble = -1.0;
+                        while (incorrectInput) {
+                            if (input.hasNextDouble()) {
+                                userChoiceDouble = input.nextDouble();
+                                if (userChoiceDouble < 0.0) {
+                                    System.out.println("Svoemmetiden kan ikke vaere negativ.");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        Double swimTime = userChoiceDouble;
+
 
                         System.out.println("Konkurrencenavn:");
                         stringInput = input.next();
 
                         System.out.println("Hvilken placering fik svoemmeren?");
-                        intInput4 = input.nextInt();
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1) {
+                                    System.out.println("Proev igen. Tallet skal vaere et positivt heltal");
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int placement = userChoice;
 
-                        SwimResult compResult = new SwimResult(doubleInput, stringInput, intInput4, o18.get(intInput2), swimDisciplines.get(intInput3));
+                        SwimResult compResult = new SwimResult(swimTime, stringInput, placement, o18.get(memChoice), swimDisciplines.get(disChoice));
                         o18CompList.add(compResult);
-                        break;
-                    } else {
                         break;
                     }
                 case 6:
-                    System.out.println("Senior eller u18 resultater:");
+                    System.out.println("u18 eller senior resultater:");
                     System.out.println("1. Top 5 u18");
                     System.out.println("2. Top 5 senior");
-                    choice2 = input.nextInt();
-                    if (choice2 == 1) {
-                        System.out.println("Vaelg disciplin:");
-                        for (int i = 0; i < swimDisciplines.size(); i++) {
-                            System.out.println(i+1+". "+swimDisciplines.get(i).getDistance()+"m "+swimDisciplines.get(i).getDisName());
+
+                    incorrectInput = true;
+                    while (incorrectInput) {
+                        if (input.hasNextInt()) {
+                            userChoice = input.nextInt();
+                            if (userChoice < 1 || userChoice > 2) {
+                                System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
+                                input.nextLine();
+                            } else {
+                                incorrectInput = false;
+                            }
+                        } else {
+                            System.out.println("Proev igen, input var ikke et heltal");
+                            input.nextLine();
                         }
-                        intInput = input.nextInt()-1;
+                    }
+                    choice2 = userChoice;
+                    if (choice2 == 1) {
+                        System.out.println("Vaelg en disciplin:");
+                        for (int i = 0; i < swimDisciplines.size(); i++) {
+                            System.out.println(i + 1 + ". " + swimDisciplines.get(i).getDistance() + " " + swimDisciplines.get(i).getDisName());
+                        }
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > swimDisciplines.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + swimDisciplines.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int disChoice = userChoice - 1;
+
                         ArrayList<SwimResult> u18Best = new ArrayList<>(u18CompList);
                         u18Best.addAll(u18TrainList);
                         Collections.sort(u18Best, Comparator.comparingDouble(SwimResult::getTime));
-                        int finalIntInput = intInput;
-                        u18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(finalIntInput));
+                        u18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(disChoice));
 
                         HashSet<Object> u18NoDup = new HashSet<>(); // Bruges til at fjerne medlemmer der optræder på listen flere gange.
                         u18Best.removeIf(swimResult->!u18NoDup.add(swimResult.getMember()));
@@ -364,17 +955,36 @@ public class Main {
                             }
                         }
                         break;
-                    } else if (choice2 == 2) {
+                    } else {
                         System.out.println("Vaelg disciplin:");
                         for (int i = 0; i < swimDisciplines.size(); i++) {
                             System.out.println(i+1+". "+swimDisciplines.get(i).getDistance()+"m "+swimDisciplines.get(i).getDisName());
                         }
-                        intInput = input.nextInt()-1;
+                        System.out.println("Vaelg en disciplin:");
+                        for (int i = 0; i < swimDisciplines.size(); i++) {
+                            System.out.println(i + 1 + ". " + swimDisciplines.get(i).getDistance() + " " + swimDisciplines.get(i).getDisName());
+                        }
+                        incorrectInput = true;
+                        while (incorrectInput) {
+                            if (input.hasNextInt()) {
+                                userChoice = input.nextInt();
+                                if (userChoice < 1 || userChoice > swimDisciplines.size()) {
+                                    System.out.println("Proev igen. Dit heltal skal vaere mellem 1 til " + swimDisciplines.size());
+                                    input.nextLine();
+                                } else {
+                                    incorrectInput = false;
+                                }
+                            } else {
+                                System.out.println("Proev igen, input var ikke et heltal");
+                                input.nextLine();
+                            }
+                        }
+                        int disChoice = userChoice - 1;
+
                         ArrayList<SwimResult> o18Best = new ArrayList<>(o18CompList);
                         o18Best.addAll(o18TrainList);
                         Collections.sort(o18Best, Comparator.comparingDouble(SwimResult::getTime));
-                        int finalIntInput = intInput;
-                        o18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(finalIntInput));
+                        o18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(disChoice));
 
                         HashSet<Object> o18NoDup = new HashSet<>(); // Bruges til at fjerne medlemmer der optræder på listen flere gange.
                         o18Best.removeIf(swimResult->!o18NoDup.add(swimResult.getMember()));
