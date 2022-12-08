@@ -33,6 +33,8 @@ public class Member {
         this.age = age;
         this.active = active;
         this.competitive = true;
+        this.crawl = crawl;
+        this.backstroke = backstroke;
         if (age > 17) {
             this.senior = true;
         }
@@ -85,7 +87,11 @@ public class Member {
     }
 
     public void setActive(boolean active) {
-        this.active = active;
+        if (active == false) {
+            subFee = 500;
+        } else {
+            this.active = active;
+        }
     }
 
     public boolean isActive() {

@@ -1,10 +1,7 @@
-import java.lang.reflect.Array;
 import java.util.*;
-
-import static java.util.stream.Collectors.collectingAndThen;
-
 public class Main {
     public static void main(String[] args) {
+        // Oprettelse af lister og attributter til senere brug
         ArrayList<Discipline> swimDisciplines = new ArrayList<>();
         Discipline crawl200m = new Discipline(200, "Crawl");
         Discipline backstroke200m = new Discipline(200, "Backstroke");
@@ -20,18 +17,13 @@ public class Main {
         boolean sentinel = true;
         int userChoice = -1;
         String stringInput;
-        int intInput;
-        int intInput2;
-        int intInput3;
-        int intInput4;
-        double doubleInput;
         Scanner input = new Scanner(System.in);
 
         // TEST
-        Member mem1 = new Member("Med1", 16, true, true, true);
+        Member mem1 = new Member("Med1", 16, true, true, false);
         Member mem2 = new Member("Med2", 16, true, true, true);
         Member mem3 = new Member("Med3", 16, true, true, true);
-        Member mem4 = new Member("Med4", 16, true, true, true);
+        Member mem4 = new Member("Med4", 16, true);
         Member mem5 = new Member("Med5", 16, true, true, true);
         Member mem6 = new Member("Med6", 16, true, true, true);
         Member mem7 = new Member("Med7", 16, true, true, true);
@@ -66,22 +58,22 @@ public class Main {
 
 
 
-        while (sentinel) {
+        while (sentinel) { // While sentinel - så koden bliver ved med at køre indtil vi siger stop.
             System.out.println("Valgmuligheder:");
             System.out.println("1. Opret nyt medlem.");
-            System.out.println("2. Rediger medlemsinformation.");
+            System.out.println("2. Vis/Rediger medlemsinformation.");
             System.out.println("3. Vis restance.");
             System.out.println("4. Indtast traeningsdata.");
             System.out.println("5. Indtast staevnedata.");
             System.out.println("6. Vis top 5 resultater.");
             System.out.println("0. Exit");
-            while (!input.hasNextInt()) {
+            while (!input.hasNextInt()) { //Input fejlsikring
                 System.out.println("Forkert input, proev igen:");
                 input.nextLine();
             }
             int choice = input.nextInt();
             switch (choice) {
-                case 1:
+                case 1: //Oprettelse af medlem case
                     System.out.println("1. Opret motionist medlem");
                     System.out.println("2. Opret konkurrence medlem");
                     boolean incorrectInput = true;
@@ -122,15 +114,15 @@ public class Main {
                         }
                         int memAge = userChoice;
 
-                        System.out.println("Medlemstype (Aktiv/Passiv)");
-                        System.out.println("1 = Aktiv");
-                        System.out.println("2 = Passiv");
+                        System.out.println("Medlemstype:");
+                        System.out.println("1. Aktiv");
+                        System.out.println("2. Passiv");
                         incorrectInput = true;
                         while (incorrectInput) {
                             if (input.hasNextInt()) {
                                 userChoice = input.nextInt();
                                 if (userChoice < 1 || userChoice > 2) {
-                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                     input.nextLine();
                                 } else {
                                     incorrectInput = false;
@@ -148,13 +140,7 @@ public class Main {
                         }
                         Member memb = new Member(stringInput, memAge, actOrPas);
                         memList.add(memb);
-                        if (memb.getAge() < 18 && memb.isCompetitive()) {
-                            u18.add(memb);
-                        } else if (memb.getAge() > 17 && memb.isCompetitive()) {
-                            o18.add(memb);
-                        } else {
-                            break;
-                        }
+
                     } else {
                         System.out.println("Medlemsnavn:");
                         stringInput = input.next();
@@ -177,15 +163,15 @@ public class Main {
                         }
                         int memAge = userChoice;
 
-                        System.out.println("Medlemstype (Aktiv/Passiv)");
-                        System.out.println("1 = Aktiv");
-                        System.out.println("2 = Passiv");
+                        System.out.println("Medlemstype:");
+                        System.out.println("1. Aktiv");
+                        System.out.println("2. Passiv");
                         incorrectInput = true;
                         while (incorrectInput) {
                             if (input.hasNextInt()) {
                                 userChoice = input.nextInt();
                                 if (userChoice < 1 || userChoice > 2) {
-                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                     input.nextLine();
                                 } else {
                                     incorrectInput = false;
@@ -209,7 +195,7 @@ public class Main {
                             if (input.hasNextInt()) {
                                 userChoice = input.nextInt();
                                 if (userChoice < 1 || userChoice > 2) {
-                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                     input.nextLine();
                                 } else {
                                     incorrectInput = false;
@@ -233,7 +219,7 @@ public class Main {
                             if (input.hasNextInt()) {
                                 userChoice = input.nextInt();
                                 if (userChoice < 1 || userChoice > 2) {
-                                    System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                    System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                     input.nextLine();
                                 } else {
                                     incorrectInput = false;
@@ -251,9 +237,17 @@ public class Main {
                         }
                         Member memb = new Member(stringInput, memAge, actOrPas, actOrPas2, actOrPas3);
                         memList.add(memb);
+                        if (memb.getAge() < 18 && memb.isCompetitive()) {
+                            u18.add(memb);
+                        } else if (memb.getAge() > 17 && memb.isCompetitive()) {
+                            o18.add(memb);
+                        } else {
+                            break;
+                        }
                     }
                     break;
-                case 2:
+
+                case 2: //Visning/redigering af medlem information
                     System.out.println("Vaelg et medlem:");
                     for (int i = 0; i < memList.size(); i++) {
                         System.out.println(i+1+". "+memList.get(i).getName());
@@ -263,7 +257,7 @@ public class Main {
                         if (input.hasNextInt()) {
                             userChoice = input.nextInt();
                             if (userChoice < 1 || userChoice > memList.size()) {
-                                System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                 input.nextLine();
                             } else {
                                 incorrectInput = false;
@@ -274,6 +268,45 @@ public class Main {
                         }
                     }
                     int memChoice = userChoice-1;
+
+                    if (memList.get(memChoice).isCompetitive()) {
+                        System.out.println("Navn: " + memList.get(memChoice).getName());
+                        System.out.println("Alder: " + memList.get(memChoice).getAge());
+                        if (memList.get(memChoice).isActive()) {
+                            System.out.println("Aktivt medlem");
+                        } else {
+                            System.out.println("Passivt medlem");
+                        }
+                        System.out.println("Konkurrencesvoemmer");
+                        if (memList.get(memChoice).isCrawl() && memList.get(memChoice).isBackstroke()) {
+                            System.out.println("Aktiv i: Crawl & Backstroke");
+                        } else if (!memList.get(memChoice).isCrawl() && memList.get(memChoice).isBackstroke()) {
+                            System.out.println("Aktiv i: Backstroke");
+                        } else if (!memList.get(memChoice).isBackstroke() && memList.get(memChoice).isCrawl()) {
+                            System.out.println("Aktiv i: Crawl");
+                        }
+                        System.out.println("Kontingent beloeb: " + memList.get(memChoice).getSubFee());
+                        if (memList.get(memChoice).isSubPaid()) {
+                            System.out.println("Betalingsstatus: Betalt");
+                        } else {
+                            System.out.println("Betalingsstatus: Ikke betalt");
+                        }
+                    } else {
+                        System.out.println("Navn: " + memList.get(memChoice).getName());
+                        System.out.println("Alder: " + memList.get(memChoice).getAge());
+                        if (memList.get(memChoice).isActive()) {
+                            System.out.println("Aktivt medlem");
+                        } else {
+                            System.out.println("Passivt medlem");
+                        }
+                        System.out.println("Motionistsvoemmer");
+                        System.out.println("Kontingent beloeb: " + memList.get(memChoice).getSubFee());
+                        if (memList.get(memChoice).isSubPaid()) {
+                            System.out.println("Betalingsstatus: Betalt");
+                        } else {
+                            System.out.println("Betalingsstatus: Ikke betalt");
+                        }
+                    }
                     System.out.println("Vaelg den data du vil redigere:");
                     System.out.println("1. Navn");
                     System.out.println("2. Alder");
@@ -281,12 +314,13 @@ public class Main {
                     System.out.println("4. Motionist eller konkurrencesvoemmer");
                     System.out.println("5. Kontingent");
                     System.out.println("6. Svoemmedisciplin");
+                    System.out.println("0. Vend tilbage til hovedmenuen");
                     incorrectInput = true;
                     while (incorrectInput) {
                         if (input.hasNextInt()) {
                             userChoice = input.nextInt();
-                            if (userChoice < 1 || userChoice > 6) {
-                                System.out.println("Proev igen. Dit heltal skal mellem 1-6");
+                            if (userChoice < 0 || userChoice > 6) {
+                                System.out.println("Proev igen. Dit heltal skal vaere mellem 0-6");
                                 input.nextLine();
                             } else {
                                 incorrectInput = false;
@@ -297,13 +331,14 @@ public class Main {
                         }
                     }
                     choice2 = userChoice;
-                    switch (choice2) {
+
+                    switch (choice2) { //Redigering af medlemsinformation
                         case 1:
                             System.out.println("Indtast det nye navn:");
                             stringInput = input.next();
                             memList.get(memChoice).setName(stringInput);
                             break;
-                        case 2:
+                        case 2: //Navn
                             System.out.println("Indtast en ny alder:");
                             incorrectInput = true;
                             while (incorrectInput) {
@@ -323,16 +358,16 @@ public class Main {
                             int memAge = userChoice;
                             memList.get(memChoice).setAge(memAge);
                             break;
-                        case 3:
-                            System.out.println("Indtast medlemmets status");
-                            System.out.println("1 = aktivt medlem");
-                            System.out.println("2 = passivt medlem");
+                        case 3: //Status
+                            System.out.println("Vaelg medlemsstatus:");
+                            System.out.println("1. Aktivt medlem");
+                            System.out.println("2. Passivt medlem");
                             incorrectInput = true;
                             while (incorrectInput) {
                                 if (input.hasNextInt()) {
                                     userChoice = input.nextInt();
                                     if (userChoice < 1 || userChoice > 2) {
-                                        System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                        System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                         input.nextLine();
                                     } else {
                                         incorrectInput = false;
@@ -350,7 +385,7 @@ public class Main {
                             }
                             memList.get(memChoice).setActive(actOrPas);
                             break;
-                        case 4:
+                        case 4: //Konkurrence/Motionst
                             System.out.println("Er medlemmet motionist eller konkurrencesvoemmer?");
                             System.out.println("1 = konkurrencesvoemmer");
                             System.out.println("2 = motionist");
@@ -359,7 +394,7 @@ public class Main {
                                 if (input.hasNextInt()) {
                                     userChoice = input.nextInt();
                                     if (userChoice < 1 || userChoice > 2) {
-                                        System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                        System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                         input.nextLine();
                                     } else {
                                         incorrectInput = false;
@@ -376,7 +411,7 @@ public class Main {
                             }
                             memList.get(memChoice).setCompetitive(actOrPas);
                             break;
-                        case 5:
+                        case 5: //Kontingent beløb og betalingsstatus
                             System.out.println("Hvilken data vil du aendre paa:");
                             System.out.println("1. Betalingsbeloeb.");
                             System.out.println("2. Betalingsstatus.");
@@ -385,7 +420,7 @@ public class Main {
                                 if (input.hasNextInt()) {
                                     userChoice = input.nextInt();
                                     if (userChoice < 1 || userChoice > 2) {
-                                        System.out.println("Proev igen. Dit heltal skal minimum vaere 1 eller 2");
+                                        System.out.println("Proev igen. Dit heltal skal vaere 1 eller 2");
                                         input.nextLine();
                                     } else {
                                         incorrectInput = false;
@@ -442,7 +477,7 @@ public class Main {
                                 memList.get(memChoice).setSubPaid(actOrPas);
                             }
                             break;
-                        case 6:
+                        case 6: //Svømmediscipliner som medlemmet er aktivt i
                             System.out.println("1. Crawl.");
                             System.out.println("2. Backstroke.");
                             incorrectInput = true;
@@ -461,6 +496,7 @@ public class Main {
                                 }
                             }
                             choice3 = userChoice;
+
                             if (choice3 == 1) {
                                 System.out.println("Vaelg aktivitetsstatus:");
                                 System.out.println("1. aktiv");
@@ -513,19 +549,20 @@ public class Main {
                                 memList.get(memChoice).setBackstroke(actOrPas);
                             }
                             break;
+                        case 0:
+                            break;
                     }
+                    break;
 
-
-
-                case 3:
+                case 3: //Viser medlemmer i restance + beløbet de skylder
                     for (int i = 0; i < memList.size(); i++) {
                         if (!memList.get(i).isSubPaid()) {
-                            System.out.println("Navn: "+ memList.get(i).getName() + ". Beloeb i restance: "+ memList.get(i).getSubFee());
+                            System.out.println("Navn: "+ memList.get(i).getName() + ". Beloeb i restance: " + memList.get(i).getSubFee() + " kr");
                             System.out.println(" ");
                         }
                     }
                     break;
-                case 4:
+                case 4: //Indtastning af træningsdata
                     System.out.println("Er det en u18 eller senior svoemmmer?");
                     System.out.println("1. u18");
                     System.out.println("2. Senior");
@@ -595,7 +632,7 @@ public class Main {
                             if (input.hasNextDouble()) {
                                 userChoiceDouble = input.nextDouble();
                                 if (userChoiceDouble < 0.0) {
-                                    System.out.println("Svoemmetiden kan ikke vaere negativ.");
+                                    System.out.println("Proev igen. Svoemmetiden kan ikke vaere negativ.");
                                     input.nextLine();
                                 } else {
                                     incorrectInput = false;
@@ -701,7 +738,7 @@ public class Main {
                         o18TrainList.add(trainResult);
                         break;
                     }
-                case 5:
+                case 5: //Indtastning af stævnedata
                     System.out.println("Er det en u18 eller senior svoemmmer?");
                     System.out.println("1. u18");
                     System.out.println("2. Senior");
@@ -777,7 +814,7 @@ public class Main {
                                     incorrectInput = false;
                                 }
                             } else {
-                                System.out.println("Proev igen, input var ikke et heltal");
+                                System.out.println("Proev igen, input var ikke en double");
                                 input.nextLine();
                             }
                         }
@@ -863,7 +900,7 @@ public class Main {
                                     incorrectInput = false;
                                 }
                             } else {
-                                System.out.println("Proev igen, input var ikke et heltal");
+                                System.out.println("Proev igen, input var ikke en double");
                                 input.nextLine();
                             }
                         }
@@ -895,7 +932,7 @@ public class Main {
                         o18CompList.add(compResult);
                         break;
                     }
-                case 6:
+                case 6: //Visning af top 5 svømmere pr disciplin
                     System.out.println("u18 eller senior resultater:");
                     System.out.println("1. Top 5 u18");
                     System.out.println("2. Top 5 senior");
@@ -940,11 +977,12 @@ public class Main {
 
                         ArrayList<SwimResult> u18Best = new ArrayList<>(u18CompList);
                         u18Best.addAll(u18TrainList);
-                        Collections.sort(u18Best, Comparator.comparingDouble(SwimResult::getTime));
-                        u18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(disChoice));
+                        Collections.sort(u18Best, Comparator.comparingDouble(SwimResult::getTime)); //Sorterer resultater baseret på bedste tid
+                        u18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(disChoice)); //Frasorterer resultater fra de andre discipliner
 
                         HashSet<Object> u18NoDup = new HashSet<>(); // Bruges til at fjerne medlemmer der optræder på listen flere gange.
                         u18Best.removeIf(swimResult->!u18NoDup.add(swimResult.getMember()));
+
                         if (u18Best.size() < 5) {
                             for (int i = 0; i < u18Best.size(); i++) {
                                 System.out.println(i + 1 + ". " + u18Best.get(i).getMember().toString() + " "+u18Best.get(i).getTime() + " Sekunder.");
@@ -957,10 +995,6 @@ public class Main {
                         break;
                     } else {
                         System.out.println("Vaelg disciplin:");
-                        for (int i = 0; i < swimDisciplines.size(); i++) {
-                            System.out.println(i+1+". "+swimDisciplines.get(i).getDistance()+"m "+swimDisciplines.get(i).getDisName());
-                        }
-                        System.out.println("Vaelg en disciplin:");
                         for (int i = 0; i < swimDisciplines.size(); i++) {
                             System.out.println(i + 1 + ". " + swimDisciplines.get(i).getDistance() + " " + swimDisciplines.get(i).getDisName());
                         }
@@ -983,11 +1017,12 @@ public class Main {
 
                         ArrayList<SwimResult> o18Best = new ArrayList<>(o18CompList);
                         o18Best.addAll(o18TrainList);
-                        Collections.sort(o18Best, Comparator.comparingDouble(SwimResult::getTime));
-                        o18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(disChoice));
+                        Collections.sort(o18Best, Comparator.comparingDouble(SwimResult::getTime)); //Sorterer resultater baseret på bedste tid
+                        o18Best.removeIf(swimResult -> swimResult.getDiscipline() != swimDisciplines.get(disChoice)); //Frasorterer resultater fra de andre discipliner
 
                         HashSet<Object> o18NoDup = new HashSet<>(); // Bruges til at fjerne medlemmer der optræder på listen flere gange.
                         o18Best.removeIf(swimResult->!o18NoDup.add(swimResult.getMember()));
+
                         if (o18Best.size() < 5) {
                             for (int i = 0; i < o18Best.size(); i++) {
                                 System.out.println(i + 1 + ". " + o18Best.get(i).getMember().toString() + " "+o18Best.get(i).getTime() + " Sekunder.");
@@ -1004,6 +1039,7 @@ public class Main {
                     break;
 
                 default:
+                    System.out.println("Forkert input, proev igen.");
                     break;
 
 
