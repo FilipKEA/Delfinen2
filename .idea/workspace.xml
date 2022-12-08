@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b76462-8f59-4777-ac55-e1b667bf56dc" name="Changes" comment="Kan nu fejlhåndtere, mangler fin testning,formulering, kommentarer, oprydning">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
+    <list default="true" id="54b76462-8f59-4777-ac55-e1b667bf56dc" name="Changes" comment="Tilføjet kommentarer + mindre rettelser">
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +37,27 @@
     "settings.editor.selected.configurable": "proofread"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Delfinen2" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Menu">
     <configuration name="MariosPizza" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MariosPizza" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Menu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Menu" />
+      <module name="Delfinen2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Menu" />
+      <item itemvalue="Application.MariosPizza" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Menu" />
         <item itemvalue="Application.MariosPizza" />
       </list>
     </recent_temporary>
@@ -73,7 +75,7 @@
       <workItem from="1670230298828" duration="3325000" />
       <workItem from="1670235943380" duration="9447000" />
       <workItem from="1670318831426" duration="5873000" />
-      <workItem from="1670495571156" duration="9476000" />
+      <workItem from="1670495571156" duration="9841000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1670230149441</created>
@@ -125,6 +127,7 @@
     <MESSAGE value="Kan fejlhåndtere, mangler fin testning + formulering og kommentarer" />
     <MESSAGE value="Kan fejlhåndtere, mangler fin testning,formulering, kommentarer, oprydning" />
     <MESSAGE value="Kan nu fejlhåndtere, mangler fin testning,formulering, kommentarer, oprydning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kan nu fejlhåndtere, mangler fin testning,formulering, kommentarer, oprydning" />
+    <MESSAGE value="Tilføjet kommentarer + mindre rettelser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tilføjet kommentarer + mindre rettelser" />
   </component>
 </project>

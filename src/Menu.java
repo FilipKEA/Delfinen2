@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main {
+public class Menu {
     public static void main(String[] args) {
         // Oprettelse af lister og attributter til senere brug
         ArrayList<Discipline> swimDisciplines = new ArrayList<>();
@@ -19,46 +19,7 @@ public class Main {
         String stringInput;
         Scanner input = new Scanner(System.in);
 
-        // TEST
-        Member mem1 = new Member("Med1", 16, true, true, false);
-        Member mem2 = new Member("Med2", 16, true, true, true);
-        Member mem3 = new Member("Med3", 16, true, true, true);
-        Member mem4 = new Member("Med4", 16, true);
-        Member mem5 = new Member("Med5", 16, true, true, true);
-        Member mem6 = new Member("Med6", 16, true, true, true);
-        Member mem7 = new Member("Med7", 16, true, true, true);
-        Member mem8 = new Member("Med8", 16, true, true, true);
-        Member mem9 = new Member("Med9", 16, true, true, true);
-        Member mem10 = new Member("Med10", 16, true, true, true);
-        SwimResult res1 = new SwimResult(11.1, "Test", 1, mem1, crawl200m);
-        SwimResult res2 = new SwimResult(11.2, "Test", 2, mem1, crawl200m);
-        SwimResult res3 = new SwimResult(11.3, "Test", 3, mem2, crawl200m);
-        SwimResult res4 = new SwimResult(11.4, "Test", 4, mem3, crawl200m);
-        SwimResult res5 = new SwimResult(11.5, "Test", 5, mem4, crawl200m);
-        SwimResult res6 = new SwimResult(11.6, "Test", 6, mem5, crawl200m);
-        SwimResult res7 = new SwimResult(11.7, "Test", 6, mem6, crawl200m);
-        SwimResult res8 = new SwimResult(11.8, "Test", 6, mem7, crawl200m);
-        SwimResult res9 = new SwimResult(11.9, "Test", 6, mem8, crawl200m);
-        u18CompList.add(res1);
-        u18CompList.add(res2);
-        u18CompList.add(res3);
-        u18CompList.add(res4);
-        u18CompList.add(res5);
-        u18CompList.add(res6);
-        u18CompList.add(res7);
-        u18CompList.add(res8);
-        u18CompList.add(res9);
-
-        memList.add(mem1);
-        memList.add(mem2);
-        memList.add(mem3);
-        memList.add(mem4);
-
-        // Test slut
-
-
-
-        while (sentinel) { // While sentinel - så koden bliver ved med at køre indtil vi siger stop.
+        while (sentinel) { // While sentinel - så koden bliver ved med at køre indtil vælger exit.
             System.out.println("Valgmuligheder:");
             System.out.println("1. Opret nyt medlem.");
             System.out.println("2. Vis/Rediger medlemsinformation.");
