@@ -544,6 +544,10 @@ public class Menu {
                     }
                     choice2 = userChoice;
                     if (choice2 == 1) {
+                        if (u18.size() == 0) {
+                            System.out.println("Der er ingen medlemmer paa u18 holdet");
+                            break;
+                        }
                         System.out.println("Vaelg et medlem:");
                         for (int i = 0; i < u18.size(); i++) {
                             System.out.println(i+1+". "+u18.get(i).getName());
@@ -622,6 +626,10 @@ public class Menu {
                         u18TrainList.add(trainResult);
                         break;
                     } else {
+                        if (o18.size() == 0) {
+                            System.out.println("Der er ingen medlemmer paa senior holdet");
+                            break;
+                        }
                         System.out.println("Vaelg et medlem:");
                         for (int i = 0; i < o18.size(); i++) {
                             System.out.println(i+1+". "+o18.get(i).getName());
@@ -720,6 +728,10 @@ public class Menu {
                     }
                     choice2 = userChoice;
                     if (choice2 == 1) {
+                        if (u18.size() == 0) {
+                            System.out.println("Der er ingen medlemmer paa u18 holdet");
+                            break;
+                        }
                         System.out.println("Vaelg et medlem:");
                         for (int i = 0; i < u18.size(); i++) {
                             System.out.println(i+1+". "+u18.get(i).getName());
@@ -806,6 +818,10 @@ public class Menu {
                         u18CompList.add(compResult);
                         break;
                     } else {
+                        if (o18.size() == 0) {
+                            System.out.println("Der er ingen medlemmer paa senior holdet");
+                            break;
+                        }
                         System.out.println("Vaelg et medlem:");
                         for (int i = 0; i < o18.size(); i++) {
                             System.out.println(i + 1 + ". " + o18.get(i).getName());

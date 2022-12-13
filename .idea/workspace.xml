@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b76462-8f59-4777-ac55-e1b667bf56dc" name="Changes" comment="Tilføjet kommentarer + mindre rettelser">
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+    <list default="true" id="54b76462-8f59-4777-ac55-e1b667bf56dc" name="Changes" comment="Fjernelse af test objekter + omdøbning af Main">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +30,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "settings.editor.selected.configurable": "proofread"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Menu">
     <configuration name="MariosPizza" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MariosPizza" />
@@ -75,7 +77,10 @@
       <workItem from="1670230298828" duration="3325000" />
       <workItem from="1670235943380" duration="9447000" />
       <workItem from="1670318831426" duration="5873000" />
-      <workItem from="1670495571156" duration="9841000" />
+      <workItem from="1670495571156" duration="10583000" />
+      <workItem from="1670525400845" duration="1296000" />
+      <workItem from="1670932569675" duration="83000" />
+      <workItem from="1670933684771" duration="144000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1670230149441</created>
@@ -105,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670245285907</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fjernelse af test objekter + omdøbning af Main">
+      <created>1670508762567</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670508762567</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +140,7 @@
     <MESSAGE value="Kan fejlhåndtere, mangler fin testning,formulering, kommentarer, oprydning" />
     <MESSAGE value="Kan nu fejlhåndtere, mangler fin testning,formulering, kommentarer, oprydning" />
     <MESSAGE value="Tilføjet kommentarer + mindre rettelser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tilføjet kommentarer + mindre rettelser" />
+    <MESSAGE value="Fjernelse af test objekter + omdøbning af Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fjernelse af test objekter + omdøbning af Main" />
   </component>
 </project>

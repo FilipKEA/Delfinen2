@@ -48,7 +48,6 @@ public class Member {
             this.subFee = 1000;
         }
     }
-
     public String getName() {
         return name;
     }
